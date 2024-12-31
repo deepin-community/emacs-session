@@ -1,15 +1,23 @@
-Source: template-repository
-Section: unknown
+Source: emacs-session
+Section: lisp
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
+Maintainer: Debian Emacsen team <debian-emacsen@lists.debian.org>
+Uploaders: David Bremner <bremner@debian.org>
+Build-Depends: debhelper (>= 10),
+ dh-elpa
 Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Vcs-Browser: https://salsa.debian.org/emacsen-team/emacs-session
+Vcs-Git: https://salsa.debian.org/emacsen-team/emacs-session.git
+Homepage: http://emacs-session.sourceforge.net/
 
-Package: template-repository
-Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Package: elpa-session
+Architecture: all
+Depends: ${elpa:Depends}, ${misc:Depends}
+Recommends: emacs (>= 46.0)
+Enhances: emacs,
+ emacs25
+Description: use variables, registers and buffer places across sessions
+ When you start Emacs, package Session restores various variables (e.g.,
+ input histories) from your last session.  It also provides a menu
+ containing recently changed/visited files and restores the places (e.g.,
+ point) of such a file when you revisit it.
